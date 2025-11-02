@@ -1,0 +1,71 @@
+/* ====== ПЕРЕКЛЮЧАТЕЛЬ РАЗМЕРА ПИЦЦЫ ====== */
+.size-selector {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 240px;
+  height: 38px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.12);
+  padding: 4px;
+  box-sizing: border-box;
+  border: 1px solid rgba(255,255,255,0.18);
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  user-select: none;
+  margin: 10px auto;
+}
+
+/* Скрываем стандартные радиокнопки */
+.size-selector input[type="radio"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+}
+
+/* Подписи */
+.size-selector label {
+  flex: 1;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  color: #0b0b0b;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.18s linear;
+  padding: 0 6px;
+}
+
+/* Подвижный индикатор */
+.size-selector__indicator {
+  position: absolute;
+  top: 4px;
+  left: 6px;
+  width: calc(50% - 8px);
+  height: calc(100% - 8px);
+  background: #111111;
+  border-radius: 999px;
+  z-index: 1;
+  transition: transform 0.22s ease;
+  transform: translateX(0);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  min-width: 55px;
+}
+
+/* Когда выбрана большая пицца — двигаем индикатор */
+.size-large:checked ~ .size-selector__indicator {
+  transform: translateX(103%);
+}
+
+/* Меняем цвет текста активного варианта */
+.size-selector input[type="radio"]:checked + label {
+  color: #ffffff;
+}

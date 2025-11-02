@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lazeez Cafe</title>
+  <link rel="stylesheet" href="styles/css/main.css">
+  <link rel="stylesheet" href="styles/css/other-page.css">
+  <link rel="stylesheet" href="styles/css/menu.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const words = document.querySelectorAll('#meet .word');
+      words.forEach(word => {
+        word.innerHTML = word.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+      });
+      anime.timeline().add({
+        targets: '#meet .letter',
+        translateY: [-300, 0],
+        opacity: [0, 1],
+        easing: 'easeOutElastic(1, .8)',
+        delay: anime.stagger(120)
+      });
+    });
+  </script>
+
+  <script src="js/app.js" defer></script>
+  <script src="menu-remake scripts/menu.js" defer></script>
+  <script src="menu-remake scripts/menu-order.js" defer></script>
+</head>
+
+<body>
+<header>
+  <a href="/other page/order.html">
+    <button class="fixed-cart">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+        <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+      </svg>
+    </button>
+  </a>
+
+  <div class="navbar">
+    <img src="/img/logo-white-theme.webp" alt="logo" class="logo">
+    <p class="logo-label">Lazeez Cafe</p>
+    <div class="yamenu">
+      <a href="/other page/other.html">
+        <button class="burger-menu" id="burger-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <div class="mobile-navbar">
+    <div class="nice-logo" style="display: flex; align-items: center; gap: 10px;">
+      <img src="/img/logo-white-theme.webp" alt="logo" class="m-logo logo">
+      <p class="logo-label-mobile">Lazeez Cafe</p>
+    </div>
+    <div class="links-mob">
+      <p class="number">☎ +7 (995) 800-08-08</p>
+      <a href="#menu"><button class="mob-button">Меню</button></a>
+      <a href="/other page/about.html"><button class="mob-button">О нас</button></a>
+      <a href="/other page/order.html"><button class="mob-button">Корзина</button></a>
+      <a href="#shimi"><button class="mob-button">Контакты</button></a>
+      <a href="/other page/rates.html"><button class="mob-button">Отзывы</button></a>
+    </div>
+  </div>
+
+  <div class="section main">
+    <div id="vstup">
+      <p id="meet" class="selectDisable" style="letter-spacing: 15px;"> 
+        <span class="word">Lazeez</span><br class="br-for-mob"><span class="word"> Cafe</span>
+      </p>
+    </div>
+    <h2 class="ps">Закажите самую вкусную еду в Гудермесе быстро и легко!</h2>
+  </div>
+</header>
+
+<div class="line line1"></div>
+
+<main class="section ultra-main centerized" id="menu">
+  <div class="menu-label">КУХНЯ И НАПИТКИ</div>
+
+  <div class="list-menu pizzas">
+    <div class="list-header">Пиццы<span class="arrow">▽</span></div>
+    <div class="list-body">
+      <div class="griddy" id="pizzas-container">
+
+      </div>
+    </div>
+  </div>
+
+  <div class="list-menu first-foods">
+    <div class="list-header">Первые блюда<span class="arrow">▽</span></div>
+    <div class="list-body">
+      <div class="griddy" id="firstFoods-container">
+
+      </div>
+    </div>
+  </div>
+
+  <div class="list-menu second-foods">
+    <div class="list-header">Вторые блюда<span class="arrow">▽</span></div>
+    <div class="list-body">
+      <div class="griddy" id="secondFoods-container">
+
+      </div>
+    </div>
+  </div>
+
+  <div class="list-menu garniri">
+    <div class="list-header">Гарниры<span class="arrow">▽</span></div>
+    <div class="list-body">
+      <div class="griddy" id="garniri-container">
+
+      </div>
+    </div>
+  </div>
+
+  <div class="list-menu salads">
+    <div class="list-header">Салаты<span class="arrow">▽</span></div>
+    <div class="list-body">
+      <div class="griddy" id="salads-container">
+
+      </div>
+    </div>
+  </div>
+
+  <div class="list-menu juices">
+    <div class="list-header">Холодные напитки<span class="arrow">▽</span></div>
+    <div class="list-body">
+      <div class="griddy" id="juices-container">
+
+      </div>
+    </div>
+  </div>
+
+  <div class="list-menu milkshakes">
+    <div class="list-header">Молочные коктейли<span class="arrow">▽</span></div>
+    <div class="list-body">
+      <div class="griddy" id="milkshakes-container">
+
+      </div>
+    </div>
+  </div>
+
+  <div class="list-menu tea">
+    <div class="list-header">Чаи<span class="arrow">▽</span></div>
+    <div class="list-body">
+      <div class="griddy" id="tea-container">
+
+      </div>
+    </div>
+  </div>
+
+  <div class="list-menu napitki">
+    <div class="list-header">Напитки<span class="arrow">▽</span></div>
+    <div class="list-body">
+      <div class="griddy" id="napitki-container">
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="line line1"></div>
+
+<footer>
+  <div class="yl" style="font-weight:600;color:white;margin-top:10vh;text-align:center;">
+    <h1>Дополнительно</h1>
+  </div>
+  <div class="contacts" id="shimi">
+    <div class="main-contacts">
+      <p class="cont">Контакты</p>
+      <p class="email">Электронная почта:</p>
+      <p class="email1" style="margin-bottom:25px;">cafe-lazeez@mail.ru</p>
+      <p class="email">☎ Телефон:</p>
+      <p class="email1">+7 (995) 800-08-08</p>
+      <div class="line"></div>
+      <div class="socials">
+        <p class="cont">Соцсети</p>
+        <div class="insta-1">
+          <img src="/img/insta.webp" alt="insta" class="insta" style="width:50px;height:50px;border-radius:50%;">
+          <p>@cafe-lazeez</p>
+        </div>
+        <div class="whatsapp-1">
+          <img src="/img/5a4e2ef62da5ad73df7efe6e.png" alt="whatsapp" class="whatsapp" style="width:45px;height:45px;filter:brightness(100)">
+          <p>+7 (995) 800-08-08</p>
+        </div>
+      </div>
+    </div>
+    <div class="map">
+      <h2>Где мы:</h2>
+      <p>Чеченская Республика, Гудермес, улица Ватутина, 51</p>
+      <div style="position:relative;overflow:hidden;border-radius:30px;">
+        <iframe src="https://yandex.ru/map-widget/v1/?ll=46.092288%2C43.347822&mode=routes&rtext=~43.347822%2C46.092288&rtt=auto&ruri=~&z=17" width="100%" height="500px" frameborder="1" allowfullscreen="true"></iframe>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", e => {
+        e.preventDefault();
+        const target = document.querySelector(anchor.getAttribute("href"));
+        if (target) target.scrollIntoView({ behavior: "smooth" });
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
